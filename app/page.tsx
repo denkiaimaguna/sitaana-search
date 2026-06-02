@@ -223,47 +223,33 @@ export default function Home() {
 
             {/* 配管コネクタ結果 */}
             {pipeResult && (
-              <div className="space-y-3">
-                {/* ノックアウト径 */}
-                <div className="bg-zinc-900 border border-orange-500/40 rounded-2xl p-8 text-center space-y-2">
-                  <p className="text-zinc-400 text-sm font-bold">
-                    {pipeResult.pipeType} 呼び{pipeResult.size} ノックアウト径
-                  </p>
-                  {Array.isArray(pipeResult.knockMm) ? (
-                    <div className="space-y-1">
-                      <div className="flex justify-center gap-6 items-end">
-                        {pipeResult.knockMm.map((mm) => (
-                          <p key={mm} className="text-orange-400 font-black" style={{ fontSize: "4rem", lineHeight: 1 }}>
-                            φ{mm}
-                          </p>
-                        ))}
-                      </div>
-                      <p className="text-zinc-500 text-base font-bold">mm</p>
+              <div className="bg-zinc-900 border border-orange-500/40 rounded-2xl p-8 text-center space-y-2">
+                <p className="text-zinc-400 text-sm font-bold">
+                  {pipeResult.pipeType} 呼び{pipeResult.size} ノックアウト径
+                </p>
+                {Array.isArray(pipeResult.knockMm) ? (
+                  <div className="space-y-1">
+                    <div className="flex justify-center gap-6 items-end">
+                      {pipeResult.knockMm.map((mm) => (
+                        <p key={mm} className="text-orange-400 font-black" style={{ fontSize: "4rem", lineHeight: 1 }}>
+                          φ{mm}
+                        </p>
+                      ))}
                     </div>
-                  ) : (
-                    <>
-                      <p className="text-orange-400 font-black" style={{ fontSize: "5rem", lineHeight: 1 }}>
-                        φ{pipeResult.knockMm}
-                      </p>
-                      <p className="text-zinc-500 text-base font-bold">mm</p>
-                    </>
-                  )}
-                  {pipeResult.note && (
-                    <p className="text-yellow-400 text-xs mt-3 bg-yellow-500/10 border border-yellow-500/30 rounded-xl px-3 py-2">
-                      ⚠ {pipeResult.note}
-                    </p>
-                  )}
-                </div>
-
-                {/* IZUMIダイスサイズ */}
-                {pipeResult.dieMm && (
-                  <div className="bg-zinc-900 border border-blue-500/40 rounded-2xl p-6 text-center space-y-1">
-                    <p className="text-zinc-400 text-xs font-bold">🔵 IZUMIパンチャー ダイスサイズ</p>
-                    <p className="text-blue-400 font-black" style={{ fontSize: "3.5rem", lineHeight: 1 }}>
-                      φ{pipeResult.dieMm}
-                    </p>
                     <p className="text-zinc-500 text-base font-bold">mm</p>
                   </div>
+                ) : (
+                  <>
+                    <p className="text-orange-400 font-black" style={{ fontSize: "5rem", lineHeight: 1 }}>
+                      φ{pipeResult.knockMm}
+                    </p>
+                    <p className="text-zinc-500 text-base font-bold">mm</p>
+                  </>
+                )}
+                {pipeResult.note && (
+                  <p className="text-yellow-400 text-xs mt-3 bg-yellow-500/10 border border-yellow-500/30 rounded-xl px-3 py-2">
+                    ⚠ {pipeResult.note}
+                  </p>
                 )}
               </div>
             )}

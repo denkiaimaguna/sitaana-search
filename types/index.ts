@@ -11,6 +11,5 @@ export interface PipeResult {
   pipeType: PipeType;
   size: string;       // "16", "22" など
   knockMm: number | number[]; // φ27 or [22, 27] (PF16のような複数)
-  dieMm?: number;    // IZUMIダイスサイズ（PF管はなし）
-  note?: string;
+note?: string;
 }
